@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Catalog component render correct 1`] = `
+<main
+  className="page__main page__main--index"
+>
+  <h1
+    className="visually-hidden"
+  >
+    Cities
+  </h1>
+  <div
+    className="cities"
+  >
+    <div
+      className="cities__places-container container"
+    >
+      <section
+        className="cities__places places"
+      >
+        <h2
+          className="visually-hidden"
+        >
+          Places
+        </h2>
+        <b
+          className="places__found"
+        >
+          10
+           places to stay in 
+          NY
+        </b>
+        <form
+          action="#"
+          className="places__sorting"
+          method="get"
+        >
+          <span
+            className="places__sorting-caption"
+          >
+            Sort by 
+          </span>
+        </form>
+      </section>
+      <div
+        className="cities__right-section"
+      >
+        <section
+          className="cities__map"
+        />
+      </div>
+    </div>
+  </div>
+</main>
+`;

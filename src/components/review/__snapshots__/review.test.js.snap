@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Review component render correct 1`] = `
+<li
+  className="reviews__item"
+>
+  <div
+    className="reviews__user user"
+  >
+    <div
+      className="reviews__avatar-wrapper user__avatar-wrapper"
+    >
+      <img
+        alt="Serhii avatar"
+        className="reviews__avatar user__avatar"
+        height="54"
+        src="img/apartment-01.jpg"
+        width="54"
+      />
+    </div>
+    <span
+      className="reviews__user-name"
+    >
+      Serhii
+    </span>
+  </div>
+  <div
+    className="reviews__info"
+  >
+    <div
+      className="reviews__rating rating"
+    >
+      <div
+        className="reviews__stars rating__stars"
+      >
+        <span
+          style={
+            Object {
+              "width": "84.00000000000001%",
+            }
+          }
+        />
+        <span
+          className="visually-hidden"
+        >
+          Rating
+        </span>
+      </div>
+    </div>
+    <p
+      className="reviews__text"
+    >
+      Hello world
+    </p>
+    <time
+      className="reviews__time"
+      dateTime="2019-04-24"
+    >
+      11 April
+    </time>
+  </div>
+</li>
+`;

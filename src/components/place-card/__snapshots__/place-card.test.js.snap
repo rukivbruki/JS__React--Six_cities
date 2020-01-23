@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PlaceCard snapshot 1`] = `
+exports[`PlaceCard component render correct 1`] = `
 <article
   className="cities__place-card place-card"
+  id={834576}
+  onMouseEnter={[Function]}
 >
   <div
     className="place-card__mark"
@@ -16,13 +18,12 @@ exports[`PlaceCard snapshot 1`] = `
   >
     <a
       href="#"
-      onClick={[Function]}
     >
       <img
         alt="Place image"
         className="place-card__image"
         height="200"
-        src=""
+        src="img/apartment-01.jpg"
         width="260"
       />
     </a>
@@ -40,7 +41,7 @@ exports[`PlaceCard snapshot 1`] = `
           className="place-card__price-value"
         >
           €
-          111
+          120
         </b>
         <span
           className="place-card__price-text"
@@ -78,7 +79,7 @@ exports[`PlaceCard snapshot 1`] = `
         <span
           style={
             Object {
-              "width": "440%",
+              "width": "860%",
             }
           }
         />
@@ -91,18 +92,11 @@ exports[`PlaceCard snapshot 1`] = `
     </div>
     <h2
       className="place-card__name"
-    >
-      <a
-        href="/offer/999"
-        onClick={[Function]}
-      >
-        Test title 1
-      </a>
-    </h2>
+    />
     <p
       className="place-card__type"
     >
-      apartment
+      Apartment
     </p>
   </div>
 </article>

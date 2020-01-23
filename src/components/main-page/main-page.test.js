@@ -1,23 +1,20 @@
-import React from 'react';
-import ShallowRenderer from 'react-test-renderer/shallow';
-import {MainPage} from './main-page.jsx';
-import mockPlaces from '../../mocks/mock-offers.js';
-import mockCities from '../../mocks/mock-cities.js';
+import React from "react";
+import renderer from "react-test-renderer";
+import {OFFERS} from "../../mocks/offers";
+import MainPage from "./main-page";
 
-jest.mock(`../../utils/set-body-root-class`);
+jest.mock(`../catalog/catalog.jsx`, () => jest.fn().mockReturnValue(null));
+jest.mock(`../header/header.jsx`, () => jest.fn().mockReturnValue(null));
+const citiesCoordinates = [[52.123123, 4.8123123], [52.21313, 4.9123123]];
 
-it(`MainPage snapshot`, () => {
-  const renderer = new ShallowRenderer();
-  const result = renderer.render(<MainPage
-    places={mockPlaces}
-    cities={mockCities}
-    activeCity={mockCities[0]}
-    activePlace={null}
-    isLoaded={true}
-    loadingError={null}
-    load={jest.fn()}
-    onCityClick={jest.fn()}
-    onActivatePlace={jest.fn()}
-  />);
-  expect(result).toMatchSnapshot();
+it(`MainPage component render correct`, () => {
+  const app = renderer
+    .create(
+        <MainPage
+          citiesCoordinates={citiesCoordinates}
+          offers={OFFERS}
+        />)
+    .toJSON();
+
+  expect(app).toMatchSnapshot();
 });

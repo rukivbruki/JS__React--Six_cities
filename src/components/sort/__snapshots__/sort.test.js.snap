@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sort component render correct 1`] = `
+Array [
+  <span
+    className="places__sorting-type"
+    onClick={[MockFunction]}
+    tabIndex="0"
+  >
+    
+    <svg
+      className="places__sorting-arrow"
+      height="4"
+      width="7"
+    >
+      <use
+        xlinkHref="#icon-arrow-select"
+      />
+    </svg>
+  </span>,
+  <ul
+    className="places__options--opened places__options places__options--custom"
+  >
+    <li
+      className=" places__option"
+      data-value="POPULAR"
+      onClick={[Function]}
+      tabIndex="0"
+    >
+      Popular
+    </li>
+    <li
+      className=" places__option"
+      data-value="TO_HIGH"
+      onClick={[Function]}
+      tabIndex="0"
+    >
+      Price: low to high
+    </li>
+    <li
+      className=" places__option"
+      data-value="TO_LOW"
+      onClick={[Function]}
+      tabIndex="0"
+    >
+      Price: high to low
+    </li>
+    <li
+      className=" places__option"
+      data-value="TOP_RATED"
+      onClick={[Function]}
+      tabIndex="0"
+    >
+      Top rated first
+    </li>
+  </ul>,
+]
+`;

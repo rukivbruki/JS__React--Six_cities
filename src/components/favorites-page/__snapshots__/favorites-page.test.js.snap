@@ -1,7 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FavoritePage snapshot 1`] = `
-<React.Fragment>
+exports[`FavoritesPage should correctly render FavoritesPage empty page renders correctly 1`] = `
+<mockConstructor
+  pageClasses={
+    Array [
+      "page--favorites-empty",
+    ]
+  }
+>
+  <mockConstructor />
+  <main
+    className="page__main page__main--favorites page__main--favorites-empty"
+  >
+    <div
+      className="page__favorites-container container"
+    >
+      <section
+        className="favorites favorites--empty"
+      >
+        <h1
+          className="visually-hidden"
+        >
+          Favorites (empty)
+        </h1>
+        <div
+          className="favorites__status-wrapper"
+        >
+          <b
+            className="favorites__status"
+          >
+            Nothing yet saved.
+          </b>
+          <p
+            className="favorites__status-description"
+          >
+            Save properties to narrow down search or plan yor future trips.
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer
+    className="footer container"
+  >
+    <Link
+      className="footer__logo-link"
+      to="/"
+    >
+      <img
+        alt="6 cities logo"
+        className="footer__logo"
+        height="33"
+        src="img/logo.svg"
+        width="64"
+      />
+    </Link>
+  </footer>
+</mockConstructor>
+`;
+
+exports[`FavoritesPage should correctly render FavoritesPage is renders correctly 1`] = `
+<mockConstructor
+  pageClasses={
+    Array [
+      "",
+    ]
+  }
+>
+  <mockConstructor />
   <main
     className="page__main page__main--favorites"
   >
@@ -19,132 +85,33 @@ exports[`FavoritePage snapshot 1`] = `
         <ul
           className="favorites__list"
         >
-          <li
-            className="favorites__locations-items"
-          >
-            <div
-              className="favorites__locations locations locations--current"
-            >
-              <div
-                className="locations__item"
-              >
-                <a
-                  className="locations__item-link"
-                  href="#"
-                >
-                  <span>
-                    city
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div
-              className="favorites__places"
-            >
-              <Memo(ConnectFunction)
-                place={
-                  Object {
-                    "bedrooms": 2,
-                    "city": Object {
-                      "location": Object {
-                        "latitude": 1,
-                        "longitude": 2,
-                        "zoom": 13,
-                      },
-                      "name": "City name 1",
-                    },
-                    "description": "text",
-                    "goods": Array [
-                      "one",
-                      "two",
-                      "tree",
-                    ],
-                    "host": Object {
-                      "avatarUrl": "url",
-                      "id": 1,
-                      "isPro": true,
-                      "name": "name",
-                    },
-                    "id": 999,
-                    "images": Array [
-                      "url1",
-                      "url2",
-                      "url3",
-                    ],
-                    "isFavorite": true,
-                    "isPremium": true,
-                    "location": Object {
-                      "latitude": 1,
-                      "longitude": 2,
-                      "zoom": 13,
-                    },
-                    "maxAdults": 2,
-                    "picture": "test-image1.jpg",
-                    "previewImage": "",
-                    "price": 111,
-                    "rating": 22,
-                    "title": "Test title 1",
-                    "type": "apartment",
-                  }
-                }
-              />
-              <Memo(ConnectFunction)
-                place={
-                  Object {
-                    "bedrooms": 3,
-                    "city": Object {
-                      "location": Object {
-                        "latitude": 1,
-                        "longitude": 2,
-                        "zoom": 13,
-                      },
-                      "name": "City name 2",
-                    },
-                    "coordinates": Array [
-                      52.3909553943508,
-                      4.85309666406198,
-                    ],
-                    "description": "text",
-                    "goods": Array [
-                      "one",
-                      "two",
-                      "tree",
-                    ],
-                    "host": Object {
-                      "avatarUrl": "url",
-                      "id": 1,
-                      "isPro": true,
-                      "name": "name",
-                    },
-                    "id": 222,
-                    "images": Array [
-                      "url1",
-                      "url2",
-                      "url3",
-                    ],
-                    "isFavorite": true,
-                    "isPremium": false,
-                    "location": Object {
-                      "latitude": 1,
-                      "longitude": 2,
-                      "zoom": 13,
-                    },
-                    "maxAdults": 1,
-                    "picture": "test-image2.jpg",
-                    "previewImage": "",
-                    "price": 222,
-                    "rating": 100,
-                    "title": "Test title 2",
-                    "type": "house",
-                  }
-                }
-              />
-            </div>
-          </li>
+          <withRouter(Connect(FavoritesList))
+            cities={
+              Array [
+                "Amsterdam",
+              ]
+            }
+            favorites={Object {}}
+          />
         </ul>
       </section>
     </div>
   </main>
-  <Footer />
-</React.Fragment>
+  <footer
+    className="footer container"
+  >
+    <Link
+      className="footer__logo-link"
+      to="/"
+    >
+      <img
+        alt="6 cities logo"
+        className="footer__logo"
+        height="33"
+        src="img/logo.svg"
+        width="64"
+      />
+    </Link>
+  </footer>
+</mockConstructor>
 `;

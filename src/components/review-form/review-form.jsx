@@ -1,129 +1,90 @@
-import React, {PureComponent} from 'react';
-import {connect} from 'react-redux';
-import {compose} from 'recompose';
-import {Field, reduxForm} from 'redux-form';
-
-import {sendComment} from '../../reducers/comments/comments';
-import {getIsSending, getSendingError} from '../../reducers/comments/selectors';
+import React from "react";
+import {connect} from "react-redux";
+import {Operation} from "../../reducer/data/data";
 import PropTypes from "prop-types";
 
-class ReviewForm extends PureComponent {
-  constructor(props) {
-    super(props);
-    this._handleSubmit = this._handleSubmit.bind(this);
-  }
+const ReviewForm = (props) => {
+  const {onInputChange, rating, review, id, onSendForm, onFormReset, isValid, formRef} = props;
 
-  render() {
-    const {invalid, sending, sendingError} = this.props;
-    return <form className="reviews__form form" action="#" method="post" onSubmit={this.props.handleSubmit(this._handleSubmit)}>
+  const sendFormData = (evt) => {
+    evt.preventDefault();
+
+    onSendForm(id, {rating: Number(rating), comment: review});
+    onFormReset();
+  };
+
+  return (
+    <form ref={formRef} className="reviews__form form" action="#" method="post" onSubmit={sendFormData}>
       <label className="reviews__label form__label" htmlFor="review">Your review</label>
       <div className="reviews__rating-form form__rating">
-        <Field component="input" className="form__rating-input visually-hidden" name="rating"
-          value="5" id="5-stars" type="radio"/>
+        <input onChange={onInputChange} className="form__rating-input visually-hidden" name="rating" value="5" id="5-stars" type="radio"/>
         <label htmlFor="5-stars" className="reviews__rating-label form__rating-label" title="perfect">
           <svg className="form__star-image" width="37" height="33">
-            <use xlinkHref="#icon-star"></use>
+            <use xlinkHref="#icon-star"/>
           </svg>
         </label>
 
-        <Field component="input" className="form__rating-input visually-hidden" name="rating" value="4" id="4-stars"
-          type="radio"/>
+        <input onChange={onInputChange} className="form__rating-input visually-hidden" name="rating" value="4" id="4-stars" type="radio"/>
         <label htmlFor="4-stars" className="reviews__rating-label form__rating-label" title="good">
           <svg className="form__star-image" width="37" height="33">
-            <use xlinkHref="#icon-star"></use>
+            <use xlinkHref="#icon-star"/>
           </svg>
         </label>
 
-        <Field component="input" className="form__rating-input visually-hidden" name="rating" value="3" id="3-stars"
-          type="radio"/>
+        <input onChange={onInputChange} className="form__rating-input visually-hidden" name="rating" value="3" id="3-stars" type="radio"/>
         <label htmlFor="3-stars" className="reviews__rating-label form__rating-label" title="not bad">
           <svg className="form__star-image" width="37" height="33">
-            <use xlinkHref="#icon-star"></use>
+            <use xlinkHref="#icon-star"/>
           </svg>
         </label>
 
-        <Field component="input" className="form__rating-input visually-hidden" name="rating" value="2" id="2-stars"
-          type="radio"/>
+        <input onChange={onInputChange} className="form__rating-input visually-hidden" name="rating" value="2" id="2-stars" type="radio"/>
         <label htmlFor="2-stars" className="reviews__rating-label form__rating-label" title="badly">
           <svg className="form__star-image" width="37" height="33">
-            <use xlinkHref="#icon-star"></use>
+            <use xlinkHref="#icon-star"/>
           </svg>
         </label>
 
-        <Field component="input" className="form__rating-input visually-hidden" name="rating" value="1" id="1-star"
-          type="radio"/>
+        <input onChange={onInputChange} className="form__rating-input visually-hidden" name="rating" value="1" id="1-star" type="radio"/>
         <label htmlFor="1-star" className="reviews__rating-label form__rating-label" title="terribly">
           <svg className="form__star-image" width="37" height="33">
-            <use xlinkHref="#icon-star"></use>
+            <use xlinkHref="#icon-star"/>
           </svg>
         </label>
       </div>
-      <Field component="textarea" className="reviews__textarea form__textarea" id="review" name="review"
-        placeholder="Tell how was your stay, what you like and what can be improved"/>
+      <textarea value={review || ``} onChange={onInputChange} className="reviews__textarea form__textarea" id="review" name="review" placeholder="Tell how was your stay, what you like and what can be improved"/>
       <div className="reviews__button-wrapper">
         <p className="reviews__help">
-          To submit review please make sure to set <span className="reviews__star">rating</span> and describe
-          your stay with at least <b className="reviews__text-amount">50 characters</b>.
+          To submit review please make sure to set <span className="reviews__star">rating</span> and describe your stay
+          with at least <b className="reviews__text-amount">50 characters</b>.
         </p>
-        {sendingError && <p style={{color: `red`}}>{}</p>}
-        <button className="reviews__submit form__submit button" type="submit" disabled={invalid || sending}>Submit</button>
+        <button
+          className="reviews__submit form__submit button"
+          type="submit"
+          disabled={!isValid}>Submit
+        </button>
       </div>
-      {sendingError && <div className="reviews__button-wrapper">
-        <p style={{color: `red`}}>{sendingError}</p>
-      </div> }
-    </form>;
-  }
-
-  _handleSubmit(values) {
-    const {placeId, onSend} = this.props;
-    onSend(placeId, {
-      rating: Number(values.rating),
-      comment: values.review,
-    });
-  }
-}
+    </form>
+  );
+};
 
 ReviewForm.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
-  placeId: PropTypes.number.isRequired,
-  invalid: PropTypes.bool.isRequired,
-  sending: PropTypes.bool.isRequired,
-  sendingError: PropTypes.string,
-  onSend: PropTypes.func.isRequired,
+  formRef: PropTypes.object.isRequired,
+  id: PropTypes.number.isRequired,
+  isValid: PropTypes.bool.isRequired,
+  onFormReset: PropTypes.func.isRequired,
+  onInputChange: PropTypes.func.isRequired,
+  onSendForm: PropTypes.func.isRequired,
+  rating: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  review: PropTypes.string,
 };
-
-const reviewFormValidate = (values) => {
-  const error = {};
-
-  if (!values.rating) {
-    error.rating = `You must select rating`;
-  }
-
-  if (!values.review || values.review.length < 50) {
-    error.rating = `Review must be more 30 characters`;
-  }
-
-  if (values.review && values.review.length > 300) {
-    error.rating = `Review must be less 300 characters`;
-  }
-
-  return error;
-};
-
-const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  sending: getIsSending(state),
-  sendingError: getSendingError(state),
-});
 
 const mapDispatchToProps = (dispatch) => ({
-  onSend: (placeId, comment) => dispatch(sendComment(placeId, comment))
+  onSendForm: (id, formData) => dispatch(Operation.sendReview(id, formData))
 });
 
 export {ReviewForm};
-export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
-    reduxForm({
-      form: `reviewForm`,
-      validate: reviewFormValidate
-    })
-)(ReviewForm);
+export default connect(null, mapDispatchToProps)(ReviewForm);

@@ -1,40 +1,43 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/app/app.jsx';
-import {createStore, applyMiddleware} from 'redux';
-import reducer from './reducers/reducer';
-import {Provider} from 'react-redux';
-import thunk from 'redux-thunk';
-import {compose} from 'recompose';
+import React from "react";
+import ReactDOM from "react-dom";
+import {applyMiddleware, createStore} from "redux";
+import thunk from "redux-thunk";
+import {createBrowserHistory} from "history";
+import {Router} from "react-router-dom";
+import {compose} from "recompose";
+import {Provider} from "react-redux";
+import App from "./components/app/app";
+import createAPI from "./api";
+import reducer from "./reducer/index";
+import {Operation} from "./reducer/data/data";
+import {PageAddress} from "./constants";
 
-import {createAPI} from './api';
-import {loadAuthorizationData} from './reducers/user/user';
+const rootElement = document.querySelector(`#root`);
+const history = createBrowserHistory();
 
 const init = () => {
-  const api = createAPI();
+  const api = createAPI(() => history.push(PageAddress.LOGIN));
+  const store = createStore(
+      reducer,
+      compose(
+          applyMiddleware(thunk.withExtraArgument(api)),
+          window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f
+      )
+  );
 
-  let store;
-  if (window.__REDUX_DEVTOOLS_EXTENSION__) {
-    store = createStore(
-        reducer,
-        compose(
-            applyMiddleware(thunk.withExtraArgument(api)),
-            window.__REDUX_DEVTOOLS_EXTENSION__()
-        )
-    );
-  } else {
-    store = createStore(reducer, applyMiddleware(thunk.withExtraArgument(api)));
-  }
 
-  store.dispatch(loadAuthorizationData);
+  store.dispatch(Operation.loadOffers());
 
   ReactDOM.render(
-      <Provider store={store}>
-        <App />
-      </Provider>,
-      document.querySelector(`#root`)
+      <Router history={history}>
+        <Provider store={store}>
+          <App/>
+        </Provider>
+      </Router>,
+      rootElement
   );
 };
 
 init();
 
+export {history};

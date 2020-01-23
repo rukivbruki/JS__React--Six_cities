@@ -1,40 +1,46 @@
-import React from 'react';
-import {configure, mount} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import {PlaceCard} from './place-card.jsx';
-import mockPlaces from '../../mocks/mock-offers.js';
-import {StaticRouter} from 'react-router-dom';
+import React from "react";
+import Enzyme, {shallow} from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+import {PlaceCard} from "./place-card";
 
-configure({adapter: new Adapter()});
+Enzyme.configure({adapter: new Adapter()});
 
-describe(`PlaceCard correctly work`, () => {
-  it(`When user click on image invoked onActivate`, () => {
-    const onActivate = jest.fn();
-    const linkPrevention = jest.fn();
-    const app = mount(<StaticRouter><PlaceCard
-      place={mockPlaces[0]}
-      onActivate={onActivate}
-      onBookmarkClick={jest.fn()}
-    /></StaticRouter>);
-    const imageLink = app.find(`.place-card__image-wrapper a`);
-    imageLink.simulate(`click`, {preventDefault: linkPrevention});
-    expect(onActivate).toHaveBeenCalledTimes(1);
-    expect(onActivate.mock.calls[0][0]).toBe(mockPlaces[0]);
-    expect(linkPrevention).toHaveBeenCalledTimes(1);
+describe(`PlaceCard callbacks are called correct`, () => {
+  const onPlaceCardHover = jest.fn();
+  const offer = {
+    id: 834576,
+    isFavorite: true,
+    isPremium: true,
+    previewImage: `img/apartment-01.jpg`,
+    price: 120,
+    rating: 43,
+    title: `Beautiful & luxurious apartment at great location`,
+    type: `Apartment`,
+  };
+  const placeCardComponent = shallow(
+      <PlaceCard
+        offer={offer}
+        onSelect={jest.fn()}
+        onAddFavorite={jest.fn()}
+        onRemoveFavorite={jest.fn()}
+        loadFavorites={jest.fn()}
+        onCardHover={onPlaceCardHover}
+      />
+  );
+  const placeCard = placeCardComponent.find(`.cities__place-card`);
+
+  it(`сallbacks are called 3 times`, () => {
+    placeCard.simulate(`mouseEnter`);
+    placeCard.simulate(`mouseEnter`);
+    placeCard.simulate(`mouseEnter`);
+
+    expect(onPlaceCardHover).toHaveBeenCalledTimes(3);
   });
 
-  it(`When user click on bookmark button invoked onBookmarkClick`, () => {
-    const onBookmarkClick = jest.fn();
-    const app = mount(<StaticRouter><PlaceCard
-      place={mockPlaces[0]}
-      onActivate={jest.fn()}
-      onBookmarkClick={onBookmarkClick}
-    /></StaticRouter>);
-    const bookmarkButton = app.find(`.place-card__bookmark-button`);
-    bookmarkButton.simulate(`click`);
-    expect(onBookmarkClick).toHaveBeenCalledTimes(1);
-    expect(onBookmarkClick.mock.calls[0][0]).toBe(mockPlaces[0]);
+  it(`check hover on PlaceCard & called with correct argument`, () => {
+    placeCard.simulate(`mouseEnter`);
+
+    expect(onPlaceCardHover).toHaveBeenCalled();
+    expect(onPlaceCardHover).toHaveBeenCalledWith(offer.id);
   });
 });
-
-

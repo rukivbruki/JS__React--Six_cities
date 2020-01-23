@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FavoritesList is renders correctly 1`] = `
+<ul
+  aria-live="polite"
+  className="favorites__list"
+  role="status"
+>
+  <li
+    className="favorites__locations-items"
+    key="Amsterdam"
+  >
+    <div
+      className="favorites__locations locations locations--current"
+    >
+      <div
+        className="locations__item"
+      >
+        <button
+          className="locations__item-link"
+          data-city="Amsterdam"
+          onClick={[Function]}
+          type="button"
+        >
+          <span>
+            Amsterdam
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      aria-live="polite"
+      className="favorites__places"
+      role="status"
+    />
+  </li>
+</ul>
+`;

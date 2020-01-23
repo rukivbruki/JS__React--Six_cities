@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sign in page renders correctly 1`] = `
+<PageLayout
+  pageClasses={
+    Array [
+      "page--gray",
+      "page--login",
+    ]
+  }
+>
+  <Connect(Header) />
+  <main
+    className="page__main page__main--login"
+  >
+    <div
+      className="page__login-container container"
+    >
+      <section
+        className="login"
+      >
+        <h1
+          className="login__title"
+        >
+          Sign in
+        </h1>
+        <WithInputsChange />
+      </section>
+      <section
+        className="locations locations--login locations--current"
+      >
+        <div
+          className="locations__item"
+        >
+          <Link
+            className="locations__item-link"
+            to="/"
+          >
+            <span>
+              Paris
+            </span>
+          </Link>
+        </div>
+      </section>
+    </div>
+  </main>
+</PageLayout>
+`;

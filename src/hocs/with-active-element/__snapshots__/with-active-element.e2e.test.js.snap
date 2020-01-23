@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlacesListWrapped works correct PlacesListWrapped should render correctly with offers 1`] = `
+<WithActiveElement
+  changeCurrentCity={[MockFunction]}
+  cities={
+    Array [
+      "Paris",
+      "Kyiv",
+    ]
+  }
+  currentCity="Amsterdam"
+>
+  <Tabs
+    activeElement={null}
+    changeCurrentCity={[MockFunction]}
+    cities={
+      Array [
+        "Paris",
+        "Kyiv",
+      ]
+    }
+    currentCity="Amsterdam"
+    onSelect={[Function]}
+  >
+    <div
+      className="tabs"
+    >
+      <section
+        className="locations container"
+      >
+        <ul
+          className="locations__list tabs__list"
+        >
+          <TabsLink
+            activeElement="Amsterdam"
+            changeCurrentCity={[MockFunction]}
+            city="Paris"
+            key="0-Paris"
+            onSelect={[Function]}
+          >
+            <li
+              className="locations__item"
+            >
+              <a
+                className="locations__item-link tabs__item "
+                href="#"
+                onClick={[Function]}
+              >
+                <span>
+                  Paris
+                </span>
+              </a>
+            </li>
+          </TabsLink>
+          <TabsLink
+            activeElement="Amsterdam"
+            changeCurrentCity={[MockFunction]}
+            city="Kyiv"
+            key="1-Kyiv"
+            onSelect={[Function]}
+          >
+            <li
+              className="locations__item"
+            >
+              <a
+                className="locations__item-link tabs__item "
+                href="#"
+                onClick={[Function]}
+              >
+                <span>
+                  Kyiv
+                </span>
+              </a>
+            </li>
+          </TabsLink>
+        </ul>
+      </section>
+    </div>
+  </Tabs>
+</WithActiveElement>
+`;

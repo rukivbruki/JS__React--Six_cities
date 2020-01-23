@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs component render correct 1`] = `
+<div
+  className="tabs"
+>
+  <section
+    className="locations container"
+  >
+    <ul
+      className="locations__list tabs__list"
+    />
+  </section>
+</div>
+`;
