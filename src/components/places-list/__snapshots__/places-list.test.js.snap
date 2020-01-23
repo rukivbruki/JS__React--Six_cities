@@ -1,0 +1,294 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlacesList snapshot 1`] = `
+<div
+  className="cities__places-wrapper"
+>
+  <div
+    className="cities__places-container container"
+  >
+    <section
+      className="cities__places places"
+    >
+      <h2
+        className="visually-hidden"
+      >
+        Places
+      </h2>
+      <b
+        className="places__found"
+      >
+        2
+         places to stay in 
+        City name 1
+      </b>
+      <form
+        action="#"
+        className="places__sorting"
+        method="get"
+      >
+        <span
+          className="places__sorting-caption"
+        >
+          Sort by 
+        </span>
+        <span
+          className="places__sorting-type"
+          onClick={[MockFunction]}
+          tabIndex="0"
+        >
+          Sort 1
+          <svg
+            className="places__sorting-arrow"
+            height="4"
+            width="7"
+          >
+            <use
+              xlinkHref="#icon-arrow-select"
+            />
+          </svg>
+        </span>
+        <ul
+          className="places__options places__options--custom
+          "
+          onClick={[MockFunction]}
+        >
+          <li
+            className="places__option places__option--active"
+            onClick={[Function]}
+            tabIndex="0"
+          >
+            Sort 1
+          </li>
+          <li
+            className="places__option "
+            onClick={[Function]}
+            tabIndex="0"
+          >
+            Sort 2
+          </li>
+        </ul>
+      </form>
+      <div
+        className="cities__places-list places__list tabs__content"
+      >
+        <Memo(ConnectFunction)
+          onActivate={[MockFunction]}
+          place={
+            Object {
+              "bedrooms": 2,
+              "city": Object {
+                "location": Object {
+                  "latitude": 1,
+                  "longitude": 2,
+                  "zoom": 13,
+                },
+                "name": "City name 1",
+              },
+              "description": "text",
+              "goods": Array [
+                "one",
+                "two",
+                "tree",
+              ],
+              "host": Object {
+                "avatarUrl": "url",
+                "id": 1,
+                "isPro": true,
+                "name": "name",
+              },
+              "id": 999,
+              "images": Array [
+                "url1",
+                "url2",
+                "url3",
+              ],
+              "isFavorite": true,
+              "isPremium": true,
+              "location": Object {
+                "latitude": 1,
+                "longitude": 2,
+                "zoom": 13,
+              },
+              "maxAdults": 2,
+              "picture": "test-image1.jpg",
+              "previewImage": "",
+              "price": 111,
+              "rating": 22,
+              "title": "Test title 1",
+              "type": "apartment",
+            }
+          }
+        />
+        <Memo(ConnectFunction)
+          onActivate={[MockFunction]}
+          place={
+            Object {
+              "bedrooms": 3,
+              "city": Object {
+                "location": Object {
+                  "latitude": 1,
+                  "longitude": 2,
+                  "zoom": 13,
+                },
+                "name": "City name 2",
+              },
+              "coordinates": Array [
+                52.3909553943508,
+                4.85309666406198,
+              ],
+              "description": "text",
+              "goods": Array [
+                "one",
+                "two",
+                "tree",
+              ],
+              "host": Object {
+                "avatarUrl": "url",
+                "id": 1,
+                "isPro": true,
+                "name": "name",
+              },
+              "id": 222,
+              "images": Array [
+                "url1",
+                "url2",
+                "url3",
+              ],
+              "isFavorite": true,
+              "isPremium": false,
+              "location": Object {
+                "latitude": 1,
+                "longitude": 2,
+                "zoom": 13,
+              },
+              "maxAdults": 1,
+              "picture": "test-image2.jpg",
+              "previewImage": "",
+              "price": 222,
+              "rating": 100,
+              "title": "Test title 2",
+              "type": "house",
+            }
+          }
+        />
+      </div>
+    </section>
+    <div
+      className="cities__right-section"
+    >
+      <section
+        className="cities__map"
+      >
+        <CityMap
+          activePlace={null}
+          city={
+            Object {
+              "location": Object {
+                "latitude": 1,
+                "longitude": 2,
+                "zoom": 13,
+              },
+              "name": "City name 1",
+            }
+          }
+          places={
+            Array [
+              Object {
+                "bedrooms": 2,
+                "city": Object {
+                  "location": Object {
+                    "latitude": 1,
+                    "longitude": 2,
+                    "zoom": 13,
+                  },
+                  "name": "City name 1",
+                },
+                "description": "text",
+                "goods": Array [
+                  "one",
+                  "two",
+                  "tree",
+                ],
+                "host": Object {
+                  "avatarUrl": "url",
+                  "id": 1,
+                  "isPro": true,
+                  "name": "name",
+                },
+                "id": 999,
+                "images": Array [
+                  "url1",
+                  "url2",
+                  "url3",
+                ],
+                "isFavorite": true,
+                "isPremium": true,
+                "location": Object {
+                  "latitude": 1,
+                  "longitude": 2,
+                  "zoom": 13,
+                },
+                "maxAdults": 2,
+                "picture": "test-image1.jpg",
+                "previewImage": "",
+                "price": 111,
+                "rating": 22,
+                "title": "Test title 1",
+                "type": "apartment",
+              },
+              Object {
+                "bedrooms": 3,
+                "city": Object {
+                  "location": Object {
+                    "latitude": 1,
+                    "longitude": 2,
+                    "zoom": 13,
+                  },
+                  "name": "City name 2",
+                },
+                "coordinates": Array [
+                  52.3909553943508,
+                  4.85309666406198,
+                ],
+                "description": "text",
+                "goods": Array [
+                  "one",
+                  "two",
+                  "tree",
+                ],
+                "host": Object {
+                  "avatarUrl": "url",
+                  "id": 1,
+                  "isPro": true,
+                  "name": "name",
+                },
+                "id": 222,
+                "images": Array [
+                  "url1",
+                  "url2",
+                  "url3",
+                ],
+                "isFavorite": true,
+                "isPremium": false,
+                "location": Object {
+                  "latitude": 1,
+                  "longitude": 2,
+                  "zoom": 13,
+                },
+                "maxAdults": 1,
+                "picture": "test-image2.jpg",
+                "previewImage": "",
+                "price": 222,
+                "rating": 100,
+                "title": "Test title 2",
+                "type": "house",
+              },
+            ]
+          }
+        />
+      </section>
+    </div>
+  </div>
+</div>
+`;
