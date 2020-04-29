@@ -7,6 +7,7 @@ module.exports = {
     // eslint-disable-next-line no-undef
     path: path.join(__dirname, `public`)
   },
+  // For use it add "start": "webpack-dev-server" in package.json
   devServer: {
     // eslint-disable-next-line no-undef
     contentBase: path.join(__dirname, `public`),
