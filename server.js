@@ -7,6 +7,6 @@ express()
 // .set(`views`, path.join(__dirname, `views`))
 // .set(`view engine`, `ejs`)
 .get(`/`, (req, res) => {
-  res.send("привет");
+  res.send(`rukivbruki`);
 })
 .listen(PORT, () => console.log(`Listening on ${PORT}`));
