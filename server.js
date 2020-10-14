@@ -7,6 +7,7 @@ express()
 // .set(`views`, path.join(__dirname, `views`))
 // .set(`view engine`, `ejs`)
 .get(`/`, (req, res) => {
+  res.append(`content-type`, `text/plain`),
   res.append(`Access-Control-Allow-Origin`, [`*`]);
   res.send(`rukivbruki`);
 })
